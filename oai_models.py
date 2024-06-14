@@ -42,3 +42,10 @@ config_list_gpt4_turbo = autogen.config_list_from_json(
         "model": ["gpt-4-turbo"],
     },
 )
+
+config_list_gpt4o = autogen.config_list_from_json(
+    "OAI_CONFIG_LIST.json",
+    filter_dict={
+        "model": ["gpt-4o"],
+    },
+)

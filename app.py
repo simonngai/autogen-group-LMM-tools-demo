@@ -3,18 +3,18 @@ from autogen.agentchat.contrib.multimodal_conversable_agent import (
     MultimodalConversableAgent,
 )
 from autogen.agentchat.contrib.capabilities.vision_capability import VisionCapability
-from oai_models import config_list_gpt4_turbo
+from oai_models import config_list_gpt4o
 
 # Based on example:
 # https://microsoft.github.io/autogen/docs/notebooks/agentchat_lmm_gpt-4v/
 
-gpt4_llm_config = {"config_list": config_list_gpt4_turbo, "cache_seed": 42}
+gpt4_llm_config = {"config_list": config_list_gpt4o, "cache_seed": 42}
 
 agent1 = MultimodalConversableAgent(
     name="image-explainer-1",
     max_consecutive_auto_reply=10,
     llm_config={
-        "config_list": config_list_gpt4_turbo,
+        "config_list": config_list_gpt4o,
         "temperature": 0.5,
         "max_tokens": 300,
     },
@@ -26,7 +26,7 @@ agent2 = MultimodalConversableAgent(
     name="image-explainer-2",
     max_consecutive_auto_reply=10,
     llm_config={
-        "config_list": config_list_gpt4_turbo,
+        "config_list": config_list_gpt4o,
         "temperature": 0.5,
         "max_tokens": 300,
     },
@@ -36,7 +36,7 @@ agent2 = MultimodalConversableAgent(
 agent3 = autogen.AssistantAgent(
     name="agent-3",
     llm_config={
-        "config_list": config_list_gpt4_turbo,
+        "config_list": config_list_gpt4o,
         "temperature": 0,
     },
     system_message="""
@@ -61,7 +61,7 @@ groupchat = autogen.GroupChat(
 
 vision_capability = VisionCapability(
     lmm_config={
-        "config_list": config_list_gpt4_turbo,
+        "config_list": config_list_gpt4o,
         "temperature": 0.5,
         "max_tokens": 300,
     }
